@@ -35,7 +35,7 @@ import net.filebot.ResourceManager;
 
 public class TheTVDBClientV1 extends AbstractEpisodeListProvider implements ArtworkProvider {
 
-	private static final String DEFAULT_MIRROR = "http://thetvdb.com";
+	private static final String DEFAULT_MIRROR = "https://thetvdb.com";
 
 	private static final Map<MirrorType, String> mirrors = MirrorType.newMap();
 
