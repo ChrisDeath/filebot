@@ -17,3 +17,6 @@ lib/ivy/
 *.pvk
 
 .DS_Store
+/filebot.eml
+/filebot.iml
+/lib/ivy - Copy/
