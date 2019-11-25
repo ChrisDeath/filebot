@@ -210,6 +210,13 @@
 			<zipfileset src="${dir.dist}/lib/xmlrpc.jar">
 				<include name="redstone/xmlrpc/**" />
 			</zipfileset>
+			<zipfileset src="${dir.dist}/lib/jaxb-api.jar">
+				<include name="javax/xml/bind/**" />
+			</zipfileset>
+			<zipfileset src="${dir.dist}/lib/jaxb-impl.jar">
+				<include name="com/sun/istack/**" />
+				<include name="com/sun/xml/**" />
+			</zipfileset>
 			<zipfileset src="${dir.dist}/lib/sevenzipjbinding.jar">
 				<include name="net/sf/sevenzipjbinding/**" />
 			</zipfileset>
