@@ -169,12 +169,12 @@ public enum SupportDialog {
 			// show donation / review reminders to power users
 			SupportDialog dialog = isAppStore() ? AppStoreReview : Donation;
 
-			if (dialog.feelingLucky(sessionRenameCount, totalRenameCount, currentRevision, lastSupportRevision, supportRevision.size())) {
-				if (dialog.show(totalRenameCount, supportRevision.isEmpty())) {
-					supportRevision = Stream.concat(supportRevision.stream(), Stream.of(currentRevision)).sorted().distinct().collect(toList());
-					persistentSupportRevision.setValue(supportRevision.toString());
-				}
-			}
+//			if (dialog.feelingLucky(sessionRenameCount, totalRenameCount, currentRevision, lastSupportRevision, supportRevision.size())) {
+//				if (dialog.show(totalRenameCount, supportRevision.isEmpty())) {
+//					supportRevision = Stream.concat(supportRevision.stream(), Stream.of(currentRevision)).sorted().distinct().collect(toList());
+//					persistentSupportRevision.setValue(supportRevision.toString());
+//				}
+//			}
 		} catch (Exception e) {
 			log.log(Level.WARNING, e, e::toString);
 		}

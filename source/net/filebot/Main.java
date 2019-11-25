@@ -160,7 +160,7 @@ public class Main {
 		// check for application updates
 		if (!"skip".equals(System.getProperty("application.update"))) {
 			try {
-				checkUpdate();
+				//checkUpdate();
 			} catch (Throwable e) {
 				debug.log(Level.WARNING, "Failed to check for updates", e);
 			}
