@@ -14,7 +14,9 @@ public enum CacheType {
 
 	Daily(Duration.ofHours(18), true),
 
-	Ephemeral(Duration.ofDays(1), false);
+	Ephemeral(Duration.ofDays(1), false),
+
+	None(Duration.ZERO, false);
 
 	final long timeToLiveSeconds;
 	final boolean diskPersistent;

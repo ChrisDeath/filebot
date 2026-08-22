@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ivy-module version="2.0">
+<ivy-module version="2.0" xmlns:m="https://ant.apache.org/ivy/maven">
 	<info organisation="net.filebot" module="filebot" />
 	<dependencies>
 		<!-- FileBot -->
@@ -12,6 +12,7 @@
 		<dependency rev="1.10.2" org="org.jsoup" name="jsoup" />
 		<dependency rev="1.6" org="org.tukaani" name="xz" />
 		<dependency rev="2.3.0" org="javax.xml.bind" name="jaxb-api" />
+		<dependency org="com.sun.xml.bind" name="jaxb-impl" rev="2.3.7"/>
 		<dependency rev="4.9.12" org="com.cedarsoftware" name="json-io" />
 		<dependency rev="2.5" org="commons-io" name="commons-io" />
 		<dependency rev="3.6" org="commons-net" name="commons-net" />
@@ -43,6 +44,21 @@
 		<dependency rev="1.5" org="org.vafer" name="jdeb" />
 
 		<dependency rev="2.33" org="org.kohsuke.args4j" name="args4j-maven-plugin" />
+		<dependency org="org.openjfx" name="javafx-graphics" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-graphics" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-base" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-base" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-web" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-web" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-controls" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-controls" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-swing" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-swing" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-fxml" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-fxml" rev="11.0.2" m:classifier="linux"/>
+		<dependency org="org.openjfx" name="javafx-media" rev="11.0.2" />
+		<dependency org="org.openjfx" name="javafx-media" rev="11.0.2" m:classifier="linux"/>
 
+		<dependency org="com.cedarsoftware" name="json-io" rev="4.10.1"/>
 	</dependencies>
 </ivy-module>

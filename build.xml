@@ -797,6 +797,15 @@
 				<include name="commons-net.jar" />
 				<include name="jsch.jar" />
 				<include name="mail.jar" />
+				<include name="javafx-base.jar" />
+				<include name="javafx-controls.jar" />
+				<include name="javafx-fxml.jar" />
+				<include name="javafx-graphics.jar" />
+				<include name="javafx-media.jar" />
+				<include name="javafx-swing.jar" />
+				<include name="javafx-web.jar" />
+				<include name="javax.inject.jar" />
+
 			</fileset>
 			<fileset dir="${dir.lib}/ivy/bundle">
 				<include name="args4j.jar" />
