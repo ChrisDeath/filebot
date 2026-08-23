@@ -80,6 +80,30 @@ public class TheTVDBClientTest {
 	}
 
 	@Test
+	public void getEpisodeListAllGerman() throws Exception {
+		List<Episode> list = db.getEpisodeList(403245, SortOrder.Airdate, Locale.GERMAN);
+
+		assertEquals(34, list.size());
+
+		// check ordinary episode
+		Episode first = list.get(0);
+		assertEquals("Silo", first.getSeriesName());
+		assertEquals("Freiheitstag", first.getTitle());
+		assertEquals("1", first.getEpisode().toString());
+		assertEquals("1", first.getSeason().toString());
+		assertEquals("1", first.getAbsolute().toString());
+
+		// check special episode
+		Episode last = list.get(list.size() - 1);
+		assertEquals("Silo", last.getSeriesName());
+		assertEquals("The Rebellion in Season 2", last.getTitle());
+		assertEquals(null, last.getSeason());
+		assertEquals(null, last.getEpisode());
+		assertEquals(0, (int) last.getAbsolute());
+		assertEquals("4", last.getSpecial().toString());
+	}
+
+	@Test
 	public void getEpisodeListSingleSeason() throws Exception {
 		List<Episode> list = db.getEpisodeList(wonderfalls, SortOrder.Airdate, Locale.ENGLISH);
 

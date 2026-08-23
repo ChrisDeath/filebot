@@ -259,10 +259,17 @@ public class TheTVDBClient extends AbstractEpisodeListProvider implements Artwor
 			if (sortOrder == SortOrder.Absolute) episodeType = "absolute";
 			if (sortOrder == SortOrder.DVD) episodeType = "dvd";
 
-			Object json = requestJson("series/" + series.getId() + "/episodes/" + episodeType + "?page=" + i, locale, Cache.ONE_DAY);
+
+			Object json = requestJson("series/" + series.getId() + "/episodes/" + episodeType + "/" + locale.getISO3Language() + "?page=" + i, locale, Cache.ONE_DAY);
 
 			// Extract the data object first
 			Object data = getMap(json, "data");
+
+			//fallback if no local version available
+			Object[] availableTranslations = getArray(data, "nameTranslations");
+			if(availableTranslations == null || !List.of(availableTranslations).contains(locale.getISO3Language())){
+				json = requestJson("series/" + series.getId() + "/episodes/" + episodeType + "/" + DEFAULT_LOCALE.getISO3Language() + "?page=" + i, locale, Cache.ONE_DAY);
+			}
 
 			// Pagination links are typically at the root of the JSON response
 			Object links = getMap(json, "links");
@@ -348,7 +355,11 @@ public class TheTVDBClient extends AbstractEpisodeListProvider implements Artwor
 				return null;
 			}
 
-			String name = getString(entityObj, "name");
+			String translatedName = null;
+			if (locale != null) {
+				translatedName = (String)getMap(entityObj, "translations").get(locale.getISO3Language());
+			}
+			String name = translatedName == null ? getString(entityObj, "name") : translatedName;
 			if (name == null) {
 				name = getString(entityObj, "seriesName");
 			}
