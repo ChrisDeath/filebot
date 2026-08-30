@@ -479,7 +479,15 @@ public class ReleaseInfo {
 	protected <A> Resource<A[]> resource(String name, Duration expirationTime, Function<String, A> parse, IntFunction<A[]> generator) {
 		return () -> {
 			Cache cache = Cache.getCache("data", CacheType.Persistent);
-			byte[] bytes = cache.bytes(name, n -> new URL(getProperty(n)), XZInputStream::new).expire(refreshDuration.optional().orElse(expirationTime)).get();
+			byte[] bytes = cache.bytes(name, n -> {
+                String propValue = getProperty(n);
+                if (propValue != null && (propValue.startsWith("http://") || propValue.startsWith("https://"))) {
+                    return new URL(propValue);
+                } else {
+                    // Attempt to load as a classpath resource from net/filebot/resources/ directory
+                    return getClass().getClassLoader().getResource("net/filebot/resources/" + propValue);
+                }
+            }, XZInputStream::new).expire(refreshDuration.optional().orElse(expirationTime)).get();
 
 			// all data files are UTF-8 encoded XZ compressed text files
 			Stream<String> lines = NEWLINE.splitAsStream(UTF_8.decode(ByteBuffer.wrap(bytes)));

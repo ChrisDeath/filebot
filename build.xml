@@ -213,8 +213,7 @@
 			<zipfileset src="${dir.dist}/lib/jaxb-api.jar">
 				<include name="javax/xml/bind/**" />
 			</zipfileset>
-			<zipfileset src="${dir.dist}/lib/jaxb-impl.jar">
-				<include name="com/sun/istack/**" />
+			<zipfileset src="${dir.dist}/lib/jaxb-runtime.jar">
 				<include name="com/sun/xml/**" />
 			</zipfileset>
 			<zipfileset src="${dir.dist}/lib/sevenzipjbinding.jar">
@@ -773,7 +772,7 @@
 				<include name="commons-io.jar" />
 				<include name="commons-vfs2.jar" />
 				<include name="jaxb-api.jar" />
-				<include name="jaxb-impl.jar" />
+				<include name="jaxb-runtime.jar" />
 				<include name="activation.jar" />
 				<include name="junrar.jar" />
 				<include name="jna.jar" />
